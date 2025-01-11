@@ -26,9 +26,9 @@ You can find more examples under the directory "docs/example-workflows"
 
 # Installation
 Enter your ComfyUI custom_nodes directory and execute the following command:
-"""bash
+```bash
 git clone https://github.com/x3bits/ComfyUI-Power-Flow.git
-"""
+```
 
 # Examples
 To make it easier to understand, the examples in the section "Quick Overview of Core Features" did not use the common nodes of ComfyUI to generate images. Here are some examples to show how this package can be used in your workflow to generate images.

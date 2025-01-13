@@ -9,7 +9,7 @@ class DisplayAnyNoOutputNode:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "value": (("*", {})),
+                "value": ((MakeSmartType("*"), {})),
                 "mode": (["raw value", "json", "tensor shape"],),
             },
         }
@@ -91,7 +91,7 @@ class ConsolePrintNode:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "value": ("*",),
+                "value": (MakeSmartType("*"),),
             },
             "optional": {
                 "prefix": ("STRING", {"multiline": False, "default": "Value:"}),

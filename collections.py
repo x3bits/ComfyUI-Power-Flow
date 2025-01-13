@@ -30,7 +30,7 @@ class IterateNextNode:
     def INPUT_TYPES(s):
         return {"required": {"iterator": (TYPE_ITERATOR,)}}
 
-    RETURN_TYPES = ("*", "BOOLEAN", TYPE_ITERATOR)
+    RETURN_TYPES = (MakeSmartType("*"), "BOOLEAN", TYPE_ITERATOR)
     RETURN_NAMES = ("item", "has_next", "iterator")
     FUNCTION = "iterator_next"
 

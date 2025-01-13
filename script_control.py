@@ -54,7 +54,7 @@ class WaitFunctionTaskNode:
             },
         }
 
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
 
     FUNCTION = "wait_function_task"
@@ -112,7 +112,7 @@ class ReceiveTaskResultNode:
             },
         }
 
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
 
     FUNCTION = "receive_task_result"
@@ -160,7 +160,7 @@ class RunPythonScriptNode:
             },
             "optional": DefaultValueWhenKeyMatchedDict(
                 {},
-                ("*",),
+                (MakeSmartType("*"),),
                 lambda k: isinstance(k, str) and k.startswith("input"),
             ),
             "hidden": {
@@ -169,7 +169,7 @@ class RunPythonScriptNode:
             },
         }
 
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
 
     FUNCTION = "run_python_script"
@@ -218,7 +218,7 @@ class PythonEvalNode:
             "required": {"script": ("STRING",)},
             "optional": DefaultValueWhenKeyMatchedDict(
                 {},
-                ("*",),
+                (MakeSmartType("*"),),
                 lambda k: isinstance(k, str) and k.startswith("i"),
             ),
         }

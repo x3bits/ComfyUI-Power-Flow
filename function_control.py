@@ -3,7 +3,7 @@ from comfy_execution.graph_utils import GraphBuilder, is_link
 
 from .consts import TYPE_FUNCTION_START, TYPE_FUNCTION_DEF
 from .graph_utils import search_nodes_between, find_max_output_index
-from .utils import DefaultValueWhenOutofRangeTuple, DefaultValueWhenKeyMatchedDict
+from .utils import DefaultValueWhenOutofRangeTuple, DefaultValueWhenKeyMatchedDict, MakeSmartType
 
 
 class FunctionControl:
@@ -20,7 +20,7 @@ class FunctionDefStartNode:
             "required": {},
             "optional": DefaultValueWhenKeyMatchedDict(
                 {},
-                ("*",),
+                (MakeSmartType("*"),),
                 lambda k: isinstance(k, str) and (k.startswith("input") or k == "execute"),
             ),
             "hidden": {
@@ -30,7 +30,7 @@ class FunctionDefStartNode:
         }
 
     # 为了通过 ComfyUI 的Prompt Validation，需要实现一个可以处理超出范围索引的元组
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple([TYPE_FUNCTION_START]), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple([TYPE_FUNCTION_START]), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(["function_start"]), "*")
     FUNCTION = "function_def_start"
     CATEGORY = "Power Flow/Flow Control"
@@ -55,7 +55,7 @@ class FunctionDefEndNode:
             },
             "optional": DefaultValueWhenKeyMatchedDict(
                 {},
-                ("*", {"lazy": True}),
+                (MakeSmartType("*"), {"lazy": True}),
                 lambda k: isinstance(k, str) and (k.startswith("output") or k == "execute"),
             ),
             "hidden": {
@@ -63,7 +63,7 @@ class FunctionDefEndNode:
             },
         }
 
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple([TYPE_FUNCTION_DEF]), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple([TYPE_FUNCTION_DEF]), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(["function_definition"]), "*")
 
     FUNCTION = "execute_function"
@@ -98,7 +98,7 @@ class ExecuteFunctionNode:
             },
             "optional": DefaultValueWhenKeyMatchedDict(
                 {},
-                ("*",),
+                (MakeSmartType("*"),),
                 lambda k: isinstance(k, str) and k.startswith("input"),
             ),
             "hidden": {
@@ -107,7 +107,7 @@ class ExecuteFunctionNode:
             },
         }
 
-    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
+    RETURN_TYPES = DefaultValueWhenOutofRangeTuple(tuple(), MakeSmartType("*"))
     RETURN_NAMES = DefaultValueWhenOutofRangeTuple(tuple(), "*")
 
     FUNCTION = "execute_function"

@@ -11,6 +11,10 @@ The following example demonstrates how to calculate the sum of integers from 1 t
 This example calculates the sum of integers from 1 to 5. Nodes between **"For Loop Open"** and **"For Loop Close"** will be executed multiple times. The **"For Loop Open"** node retrieves one element from the input list during each iteration and outputs it through the "item" slot.
 ![for loop](./docs/example-workflows/for-loop.png)
 
+## If
+The following example compares two numbers and displays the larger one. You can see that only "3" is printed to console. "2" is not printed because the node is not executed.
+![if](./docs/example-workflows/if.png)
+
 ## Function Call
 In the workflow below, a function is defined between **"Function Definition Start"** and **"Function Definition End"** to add two integers. The function is then called twice with different parameters, and the results are output.
 ![execute function](./docs/example-workflows/execute-function.png)

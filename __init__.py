@@ -34,6 +34,7 @@ from .loop_control import (
     ForLoopOpenNode,
     ForLoopCloseNode,
 )
+from .condition_control import IfNode
 from .no_output import SaveImageNoOutput, PreviewImageNoOutput
 from .script_control import (
     ReceiveTaskResultNode,
@@ -54,6 +55,7 @@ NODE_CLASS_MAPPINGS = {
     f"{NAME_PREFIX}WhileLoopClose": WhileLoopCloseNode,
     f"{NAME_PREFIX}ForLoopOpen": ForLoopOpenNode,
     f"{NAME_PREFIX}ForLoopClose": ForLoopCloseNode,
+    f"{NAME_PREFIX}If": IfNode,
     f"{NAME_PREFIX}FunctionDefStart": FunctionDefStartNode,
     f"{NAME_PREFIX}FunctionDefEnd": FunctionDefEndNode,
     f"{NAME_PREFIX}ExecuteFunction": ExecuteFunctionNode,
@@ -90,6 +92,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     f"{NAME_PREFIX}WhileLoopClose": "While Loop Close",
     f"{NAME_PREFIX}ForLoopOpen": "For Loop Open",
     f"{NAME_PREFIX}ForLoopClose": "For Loop Close",
+    f"{NAME_PREFIX}If": "If",
     f"{NAME_PREFIX}FunctionDefStart": "Function Definition Start",
     f"{NAME_PREFIX}FunctionDefEnd": "Function Definition End",
     f"{NAME_PREFIX}ExecuteFunction": "Execute Function",

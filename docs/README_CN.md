@@ -9,6 +9,10 @@
 以下是一个计算从1到5的整数和的演示。位于"For Loop Open"和"For Loop Close"之间的节点将被多次执行。"For Loop Open"节点每次从输入列表中取出一个元素，并在"item"这个输出节点输出。
 ![for循环](./example-workflows/for-loop.png)
 
+## If
+以下是一个比较两个数字并输出较大一方的示例。您可以看到，只有"3"被打印到控制台。"2"没有被打印，因为该节点没有被执行。
+![if](./example-workflows/if.png)
+
 ## 函数调用
 在下面的工作流中，我们在"Function Definition Start"和"Function Definition End"之间定义了一个将两个整数相加的函数。然后我们用不同的参数调用了它两次，并输出结果。
 ![执行函数](./example-workflows/execute-function.png)
